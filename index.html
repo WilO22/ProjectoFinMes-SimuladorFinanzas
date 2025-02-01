@@ -4,55 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Control de Gastos</title>
-    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="contenedor">
+    <header>
       <h1>Simulador de Finanzas Personales</h1>
+    </header>
 
-      <!-- Formulario para agregar movimientos -->
-      <form id="formularioFinanzas">
+    <main class="contenedor">
 
-        <div class="grupo-formulario">
+      <section>
+        <h2>Agregar Movimiento</h2>
+
+        <form id="formularioFinanzas">
           <label for="descripcion">Descripción:</label>
           <input type="text" id="descripcion" placeholder="Ej: Cuenta de luz" required/>
-        </div>
 
-        <div class="grupo-formulario">
           <label for="monto">Monto (S/.):</label>
           <input type="number" id="monto" placeholder="Ej: 80.00" required />
-        </div>
 
-        <div class="grupo-formulario">
           <label for="tipo">Tipo:</label>
           <select id="tipo" required>
             <option value="entrada">Entrada</option>
             <option value="salida">Salida</option>
           </select>
-        </div>
-        <button type="submit" onclick="agregarMovimientos()">Agregar</button>
-      </form>
 
-      <!-- Tabla para mostrar los movimientos -->
-      <h2>Últimos Movimientos</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Descripción</th>
-            <th>Valor</th>
-            <th>Fecha</th>
-            <th>Tipo</th>
-            <th>Acción</th>
-          </tr>
-        </thead>
-        <tbody id="tablaMovimientos">
-          <!-- Las filas se agregarán dinámicamente aquí -->
-        </tbody>
-      </table>
-      <h2>Gráficos</h2>
-      <canvas id="graficoFinanzas" width="400" height="200"></canvas>
+          <button type="submit">Agregar</button>
+        </form>
+      </section>
 
-    </div>
+      <section>
+        <h2>Últimos Movimientos</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Descripción</th>
+              <th>Valor</th>
+              <th>Fecha</th>
+              <th>Tipo</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="tablaMovimientos">
+            <!-- Movimientos dinámicos -->
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Gráficos</h2>
+        
+        <canvas id="graficoFinanzas" width="400" height="200"></canvas>
+      </section>
+
+    </main>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/aplicacion.js"></script>
   </body>
